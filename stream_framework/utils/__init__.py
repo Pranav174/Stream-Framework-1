@@ -35,14 +35,17 @@ class LRUCache:
         self.cache[key] = value
 
 
-def chunks(iterable, n=10000):
-    it = iter(iterable)
-    while True:
-        chunk = tuple(itertools.islice(it, n))
-        if not chunk:
-            return
-        yield chunk
+# def chunks(iterable, n=10000):
+#     it = iter(iterable)
+#     while True:
+#         chunk = tuple(itertools.islice(it, n))
+#         if not chunk:
+#             return
+#         yield chunk
 
+def chunks(l, n=10000): 
+    for i in range(0, len(l), n):  
+        yield l[i:i + n] 
 
 epoch = datetime(1970, 1, 1)
 

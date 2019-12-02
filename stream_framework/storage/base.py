@@ -241,6 +241,14 @@ class BaseTimelineStorage(BaseStorage):
 
     default_serializer_class = SimpleTimelineSerializer
 
+    def add_to_storage(self, serialized_activities, *args, **kwargs):
+        '''
+        Adds the serialized activities to the storage layer
+
+        :param serialized_activities: a dictionary with {id: serialized_activity}
+        '''
+        raise NotImplementedError()
+        
     def add(self, key, activity, *args, **kwargs):
         return self.add_many(key, [activity], *args, **kwargs)
 
